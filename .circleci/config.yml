@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  buildpulse: workshop64/buildpulse@0.7
+
 jobs:
   build:
     docker:
@@ -23,4 +26,9 @@ jobs:
 
       - run:
           name: Run tests
-          command: pipenv run pytest
+          command: pipenv run pytest --junitxml=junit.xml
+
+      - buildpulse/upload:
+          path: .
+          account-id: 68192324 # Replace this value with your BuildPulse account ID
+          repository-id: 411676632 # Replace this value with your BuildPulse repository ID
