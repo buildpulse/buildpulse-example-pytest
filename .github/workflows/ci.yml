@@ -24,3 +24,13 @@ jobs:
     - name: Test with pytest
       run: |
         pipenv run pytest --junitxml=junit.xml
+
+    - name: Upload test results to BuildPulse for flaky test detection
+      if: '!cancelled()' # Run this step even when the tests fail. Skip if the workflow is cancelled.
+      uses: Workshop64/buildpulse-action@main
+      with:
+        account: 68192324 # Replace this value with your BuildPulse account ID
+        repository: 411676632 # Replace this value with your BuildPulse repository ID
+        path: junit.xml
+        key: ${{ secrets.BUILDPULSE_ACCESS_KEY_ID }}
+        secret: ${{ secrets.BUILDPULSE_SECRET_ACCESS_KEY }}
