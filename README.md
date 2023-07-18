@@ -14,8 +14,8 @@ If you have an existing pytest project building on GitHub Actions CI, this [diff
 
 BuildPulse also offers integrations for:
 
-- **Semaphore** [[docs](https://github.com/Workshop64/buildpulse-semaphore)]
-- **Travis CI** [[docs](https://github.com/Workshop64/buildpulse-travis-ci)]
+- **Semaphore** [[docs](https://github.com/buildpulse/buildpulse-semaphore)]
+- **Travis CI** [[docs](https://github.com/buildpulse/buildpulse-travis-ci)]
 - Buildkite (available in early access)
 - Jenkins (available in early access)
 
